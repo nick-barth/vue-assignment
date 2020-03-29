@@ -1,5 +1,5 @@
 <template>
-  <div class="VcMap">
+  <div class="map">
     <MglMap :accessToken="accessToken" :mapStyle="mapStyle" @load="onMapLoaded">
       <MglMarker v-if="carLocs" :coordinates="carLocs"
         ><svg
@@ -71,7 +71,7 @@ export default {
 </script>
 
 <style scoped>
-.VcMap {
+.map {
   height: 400px;
   width: 400px;
   position: relative;
