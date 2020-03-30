@@ -17,13 +17,14 @@ export default {
 
 <style scoped>
 .bar {
-  max-width: 400px;
+  width: 100%;
   height: 30px;
   position: relative;
+  border: 1px dotted #f1defa;
 }
 .measure {
-  background-color: red;
-  height: 28px;
+  background-color: #8a4baf;
+  height: 30px;
   transition: 0.1s ease-in-out all;
 }
 </style>

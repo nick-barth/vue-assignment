@@ -59,7 +59,7 @@ export default {
         await this.map.flyTo({
           center: locs,
           zoom: 15,
-          speed: 3
+          speed: 8
         });
       }
     });
@@ -72,8 +72,6 @@ export default {
 
 <style scoped>
 .map {
-  height: 400px;
-  width: 400px;
   position: relative;
 }
 </style>

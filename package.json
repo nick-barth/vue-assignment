@@ -13,5 +13,10 @@
     "csv-parse": "^4.0.1",
     "express": "^4.16.4",
     "ws": "^6.1.2"
+  },
+  "dependencies": {
+    "chart.js": "^2.9.3",
+    "moment": "^2.24.0",
+    "vue-chartjs": "^3.5.0"
   }
 }
