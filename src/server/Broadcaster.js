@@ -9,6 +9,7 @@ class Broadcaster extends EventEmitter {
   }
 
   start() {
+    this.violations = [];
     this.broadcasting = true;
     const broadcast = () => {
       console.log("Broadcasting...");
@@ -28,7 +29,13 @@ class Broadcaster extends EventEmitter {
               // data that came out of the vehicle came in with irregular interval
               // Hence the Math.random() on the second parameter
               setTimeout(() => {
-                this.emit("data", obj);
+                if (obj.speed > 45) {
+                  this.violations.push(obj);
+                }
+                this.emit("data", {
+                  ...obj,
+                  violations: this.violations
+                });
                 cb();
               }, Math.ceil(Math.random() * 150));
             }

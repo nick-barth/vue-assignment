@@ -33,6 +33,18 @@
       <div class="charts-charts">
         <vc-chart-container />
       </div>
+      <div v-if="violations.length > 0" class="speeding-violations">
+        <vc-card
+          v-for="violation in violations.slice(0, 5)"
+          :key="violation"
+          className="violation"
+          title="Violation"
+        >
+          <span class="speed-siren" role="img" alt="siren">🚨</span>
+          {{ violation.speed }}km/h at {{ violation.time | toReadableTime }}
+          <span class="speed-siren" role="img" alt="siren">🚨</span>
+        </vc-card>
+      </div>
     </div>
   </div>
 </template>
@@ -67,7 +79,8 @@ export default {
     isDataLoaded: state => state.socket.data,
     energy: state => state.socket.data.energy,
     odo: state => state.socket.data.odo,
-    time: state => state.socket.data.time
+    time: state => state.socket.data.time,
+    violations: state => state.socket.data.violations
   })
 };
 </script>
@@ -99,6 +112,21 @@ html {
 }
 .stat-title {
   font-size: 18px;
+}
+.speeding-violations {
+  margin-bottom: 20px;
+}
+
+.slide-fade-enter-active {
+  transition: all 0.5s ease;
+}
+.slide-fade-leave-active {
+  transition: all 1s cubic-bezier(1, 0.5, 0.8, 1);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
 }
 
 @media (min-width: 576px) {
