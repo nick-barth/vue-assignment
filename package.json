@@ -4,19 +4,17 @@
   "description": "![ ](https://imgs.xkcd.com/comics/code_quality_3.png)",
   "main": "index.js",
   "scripts": {
+    "client-install": "cd src/client && npm i",
+    "start": "concurrently --kill-others \"npm run client\" \"npm run server\"",
     "client": "cd src/client && npm run serve",
     "server": "node src/server/app.js"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "concurrently": "^5.1.0",
     "csv-parse": "^4.0.1",
     "express": "^4.16.4",
     "ws": "^6.1.2"
-  },
-  "dependencies": {
-    "chart.js": "^2.9.3",
-    "moment": "^2.24.0",
-    "vue-chartjs": "^3.5.0"
   }
 }
