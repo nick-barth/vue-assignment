@@ -5,7 +5,7 @@
 ```
 git clone
 npm install
-npm run install-client
+npm run client-install
 npm run start
 ```
 ---
